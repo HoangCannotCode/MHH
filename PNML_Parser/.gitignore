@@ -1,0 +1,7 @@
+# Ignore my personal files
+*.txt
+*.pdf
+
+# Ignore build files
+*.o
+*.exe
