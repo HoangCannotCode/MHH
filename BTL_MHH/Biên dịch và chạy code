@@ -1,0 +1,27 @@
+Lệnh biên dịch:
+g++ \
+  main.cpp \
+  Deadlock_ILP.cpp \
+  ../SymbolicComputationUsingBDD/BDD_Reachability.cpp \
+  ../PNML_Parser/PetriNet.cpp \
+  ../PNML_Parser/tinyxml2.cpp \
+  -o detector.exe \
+  -std=c++17 \
+  -mconsole \
+  -static \
+  -I/d/BTL_MHH/cudd300/cudd \
+  -I/d/BTL_MHH/cudd300/cplusplus \
+  -I../PNML_Parser \
+  -I../SymbolicComputationUsingBDD \
+  -L/d/BTL_MHH/cudd300/cudd/.libs \
+  -L/d/BTL_MHH/cudd300/cplusplus/.libs \
+  -L/d/BTL_MHH/cudd300/dddmp/.libs \
+  -L/d/msys64/mingw64/lib \
+  -lglpk \
+  -lz \
+  -lobj \
+  -lcudd \
+  -ldddmp \
+  -lm
+Lệnh chạy:
+ ./detector.exe D:\BTL_MHH\MHH\SymbolicComputationUsingBDD\test.pnml 
