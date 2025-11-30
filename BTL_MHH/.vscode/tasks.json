@@ -1,0 +1,57 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Deadlock Detector (CUDD/GLPK)",
+            "type": "shell",
+            "command": "d:/msys64/mingw64/bin/g++.exe",
+            "options": {
+                // SỬ DỤNG BASH SHELL THAY VÌ POWERSHELL
+                "shell": {
+                    "executable": "D:/msys64/usr/bin/bash.exe", // Điều chỉnh đường dẫn này
+                    "args": ["-l", "-c"] 
+                },
+                "cwd": "D:/BTL_MHH"
+            },
+            "args": [
+                // 1. Tệp nguồn
+                "/d/MHH/Deadlock_Detection/main.cpp", 
+                    // Tệp định nghĩa Task 4
+                "/d/MHH/Deadlock_Detection/Deadlock_ILP.cpp", 
+                // Tệp định nghĩa Task 3
+                "/d/MHH/SymbolicComputationUsingBDD/BDD_Reachability.cpp", 
+                // Tệp định nghĩa Task 1 (Parser)
+                "/d/MHH/PNML_Parser/PNML_Parser.cpp",
+                "/d/BTL_MHH/MHH/Deadlock_Detection/Deadlock_ILP.cpp", 
+                
+                // 2. Tên và vị trí tệp đầu ra
+                "-o",
+                "/d/BTL_MHH/MHH/Deadlock_Detection/detector.exe",
+                
+                "-std=c++17",
+                "-mconsole",
+                "-v", // THÊM CỜ -v ĐỂ XEM LỖI CHI TIẾT
+                "-static",
+                //"-Wl,--subsystem,console",  
+                // --- 4. CỜ INCLUDE (-I) (D:\BTL_MHH\cudd-3.0.0) ---
+                "-I/d/BTL_MHH/cudd300/cudd",
+                "-I/d/BTL_MHH/cudd300/cplusplus",
+                
+                // --- 5. CỜ LIBRARY PATH (-L) (Dùng tên mới) ---
+                "-L/d/BTL_MHH/cudd300/cudd/.libs",
+                "-L/d/BTL_MHH/cudd300/cplusplus/.libs",
+                "-L/d/BTL_MHH/cudd300/dddmp/.libs",
+                "-L/d/msys64/mingw64/lib",
+                
+                // --- 6. CỜ LINKING (-l) ---
+                "-lglpk", "-lz", "-lobj", "-lcudd", "-ldddmp", "-lm"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Biên dịch dự án Petri Net với GLPK và CUDD",
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}
