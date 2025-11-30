@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+ <net id="n-4230" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <place id="p_producer_ready">
+   <name><text>Producer Ready</text></name>
+   <initialMarking><text>1</text></initialMarking>
+  </place>
+  <place id="p_buffer">
+   <name><text>Buffer</text></name>
+   <initialMarking><text>0</text></initialMarking>
+  </place>
+  <place id="p_consumer_ready">
+   <name><text>Consumer Ready</text></name>
+   <initialMarking><text>1</text></initialMarking>
+  </place>
+
+  <transition id="t_produce">
+   <name><text>Produce Item</text></name>
+  </transition>
+  <transition id="t_consume">
+   <name><text>Consume Item</text></name>
+  </transition>
+
+  <arc id="a1" source="p_producer_ready" target="t_produce"/>
+  <arc id="a2" source="t_produce" target="p_buffer"/>
+  <arc id="a3" source="t_produce" target="p_producer_ready"/> 
+  <arc id="a4" source="p_consumer_ready" target="t_consume"/>
+  <arc id="a5" source="p_buffer" target="t_consume"/>
+  <arc id="a6" source="t_consume" target="p_consumer_ready"/>
+ </net>
+</pnml>

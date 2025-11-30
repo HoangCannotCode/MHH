@@ -1,0 +1,3 @@
+cudd/
+petri_solver
+*.o
