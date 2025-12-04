@@ -11,22 +11,18 @@ int main(int argc, char* argv[]) {
     std::string filename = argv[1];
     PetriNet pn;
 
-    // 1. Parse file PNML
+    // Parse file PNML
     std::cout << "Parsing " << filename << "..." << std::endl;
     if (!pn.parsePNML(filename)) {
         std::cerr << "Failed to parse PNML." << std::endl;
         return 1;
     }
 
-    // 2. Chạy Task 3 (BDD Reachability)
-    std::cout << "Computing symbolic reachability..." << std::endl;
     BDDReachability bdd_solver(pn);
     
     std::pair<BDD, double> result = bdd_solver.compute_reachable_markings();
 
-    std::cout << "--------------------------------" << std::endl;
     std::cout << "Total reachable markings: " << (long long)result.second << std::endl;
-    std::cout << "--------------------------------" << std::endl;
 
     return 0;
 }

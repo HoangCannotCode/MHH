@@ -8,19 +8,17 @@
 
 class BDDReachability {
 private:
-    Cudd manager;           // Trình quản lý BDD
-    PetriNet& pn;           // Tham chiếu đến Petri Net đã parse
+    Cudd manager;           // BDD manager
+    PetriNet& pn;
 
-    // Vector lưu biến BDD: x (trạng thái hiện tại), y (trạng thái tiếp theo)
+    // Save BDD: x (Temp), y (Next)
     std::vector<BDD> x_vars; 
     std::vector<BDD> y_vars;
 
 public:
-    // Constructor nhận vào đối tượng PetriNet
     BDDReachability(PetriNet& net);
 
-    // Hàm chính thực hiện Task 3
-    // Trả về: Pair <BDD biểu diễn tập trạng thái, Số lượng trạng thái>
+    // Return Pair <BDD (show status), double (count)>
     std::pair<BDD, double> compute_reachable_markings();
 };
 
