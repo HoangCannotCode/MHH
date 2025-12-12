@@ -1,0 +1,59 @@
+=================================================================================================================================================
+| File                                             | Places   | Transitions  | Reachable Markings| Deadlock Found| Execution Time | Status |
+=================================================================================================================================================
+| VehicularWifi-COL.pnml                           | 21       | 41           | 1                 | N/A           | 0.1125s        | Pass   |
+| airplane.pnml                                    | 20       | 15           | 1                 | N/A           | 0.0148s        | Pass   |
+| bart.pnml                                        | 4        | 7            | 1                 | N/A           | 0.0187s        | Pass   |
+| bridges.pnml                                     | 15       | 11           | 1                 | N/A           | 0.0092s        | Pass   |
+| csrepetition.pnml                                | 6        | 5            | 1                 | N/A           | 0.0083s        | Pass   |
+| database.pnml                                    | 11       | 8            | 1                 | N/A           | 0.0115s        | Pass   |
+| dot2.pnml                                        | 8        | 8            | 1                 | N/A           | 0.0100s        | Pass   |
+| dot3.pnml                                        | 8        | 8            | 1                 | N/A           | 0.0113s        | Pass   |
+| drinking.pnml                                    | 6        | 7            | 1                 | N/A           | 0.0126s        | Pass   |
+| family.pnml                                      | 104      | 66           | 1                 | N/A           | 0.0652s        | Pass   |
+| galloc.pnml                                      | 5        | 7            | 1                 | N/A           | 0.0088s        | Pass   |
+| lamport.pnml                                     | 18       | 17           | 1                 | N/A           | 0.0096s        | Pass   |
+| neoelection.pnml                                 | 18       | 22           | 1                 | N/A           | 0.0153s        | Pass   |
+| permadmissibility.pnml                           | 40       | 16           | 1                 | N/A           | 0.0162s        | Pass   |
+| peterson.pnml                                    | 11       | 14           | 1                 | N/A           | 0.0090s        | Pass   |
+| philo.pnml                                       | 5        | 5            | 1                 | N/A           | 0.0080s        | Pass   |
+| philodyn.pnml                                    | 8        | 7            | 1                 | N/A           | 0.0084s        | Pass   |
+| polyorb-lf.pnml                                  | 81       | 65           | 1                 | N/A           | 0.0551s        | Pass   |
+| polyorb-nt.pnml                                  | 48       | 38           | 1                 | N/A           | 0.0237s        | Pass   |
+| qcertif.pnml                                     | 30       | 26           | 1                 | N/A           | 0.0175s        | Pass   |
+| referendum-intrange.pnml                         | 4        | 3            | 1                 | N/A           | 0.0084s        | Pass   |
+| referendum.pnml                                  | 4        | 3            | 1                 | N/A           | 0.0082s        | Pass   |
+| safebus.pnml                                     | 20       | 14           | 1                 | N/A           | 0.0098s        | Pass   |
+| sharedmemory.pnml                                | 6        | 5            | 1                 | N/A           | 0.0093s        | Pass   |
+| simple.pnml                                      | 14       | 13           | 1                 | N/A           | 0.0132s        | Pass   |
+| sudokuA.pnml                                     | 4        | 1            | 1                 | N/A           | 0.0080s        | Pass   |
+| sudokuB.pnml                                     | 5        | 1            | 1                 | N/A           | 0.0086s        | Pass   |
+| token.pnml                                       | 1        | 2            | 1                 | N/A           | 0.0079s        | Pass   |
+| utilitycr.pnml                                   | 13       | 12           | 1                 | N/A           | 0.0120s        | Pass   |
+| example.pnml                                     | 3        | 2            | 2                 | N/A           | 0.0080s        | Pass   |
+| file-access.pnml                                 | 3        | 1            | 1                 | N/A           | 0.0079s        | Pass   |
+| philo.pnml                                       | 30       | 30           | 729               | N/A           | 0.0205s        | Pass   |
+| piscine.pnml                                     | 9        | 7            | 1                 | N/A           | 0.0080s        | Pass   |
+| shared-memory-hlv.pnml                           | 6        | 5            | 1                 | N/A           | 0.0102s        | Pass   |
+| shared-memory.pnml                               | 6        | 5            | 1                 | N/A           | 0.0105s        | Pass   |
+| token-ring.pnml                                  | 18       | 15           | 1                 | N/A           | 0.0106s        | Pass   |
+| DrinkVendingMachine-COL-10.pnml                  | 6        | 7            | 1                 | N/A           | 0.0089s        | Pass   |
+| GlobalResAllocation-COL-06.pnml                  | 5        | 7            | 1                 | N/A           | 0.0085s        | Pass   |
+| PhilosophersDyn-COL-50.pnml                      | 8        | 7            | 1                 | N/A           | 0.0130s        | Pass   |
+| SafeBus-COL-50.pnml                              | 20       | 14           | 1                 | N/A           | 0.0138s        | Pass   |
+| SharedMemory-COL-000100.pnml                     | 6        | 5            | 1                 | N/A           | 0.0079s        | Pass   |
+| TokenRing-COL-050.pnml                           | 1        | 2            | 1                 | N/A           | 0.0086s        | Pass   |
+| BART-COL-060.pnml                                | 4        | 7            | 1                 | N/A           | 0.0211s        | Pass   |
+| DrinkVendingMachine-COL-16.pnml                  | 6        | 7            | 1                 | N/A           | 0.0096s        | Pass   |
+| GlobalResAllocation-COL-07.pnml                  | 5        | 7            | 1                 | N/A           | 0.0114s        | Pass   |
+| PhilosophersDyn-COL-80.pnml                      | 8        | 7            | 1                 | N/A           | 0.0121s        | Pass   |
+| SafeBus-COL-80.pnml                              | 20       | 14           | 1                 | N/A           | 0.0093s        | Pass   |
+| SharedMemory-COL-000200.pnml                     | 6        | 5            | 1                 | N/A           | 0.0104s        | Pass   |
+| TokenRing-COL-100.pnml                           | 1        | 2            | 1                 | N/A           | 0.0151s        | Pass   |
+| VehicularWifi-COL.pnml                           | 21       | 41           | 1                 | N/A           | 0.0262s        | Pass   |
+=================================================================================================================================================
+
+✓ Total: 50 tests completed
+✓ Passed: 50/50
+✓ Total execution time: 0.78s
+✓ Average execution time: 0.0157s
