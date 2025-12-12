@@ -1,0 +1,863 @@
+\documentclass[12pt,a4paper]{article}
+
+% ================== TIẾNG VIỆT & FONT ==================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[vietnamese]{babel}
+
+% ================== CÁC GÓI CHÍNH ==================
+\usepackage{indentfirst}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{etaremune}
+\usepackage{colortbl}
+\usepackage{amssymb,amsmath,amsthm,amscd}
+\usepackage{latexsym,array,hhline,fancyhdr}
+\usepackage{enumitem}
+\usepackage{MnSymbol,wasysym}
+\usepackage{textcomp}
+\usepackage{tikz}
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds}
+\usepackage{tikzsymbols}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{caption,subcaption}
+\usepackage{graphicx}
+\usepackage[makeroom]{cancel}
+\usepackage{multicol,longtable}
+\usepackage{diagbox}
+\usepackage{booktabs}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-\do_}
+\usepackage{cases}
+\usepackage{tasks}
+\usepackage{forest}
+\usepackage{titlesec}
+\usepackage{lastpage}
+\usepackage{geometry}
+
+% ================== MÀU SẮC ==================
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% ================== LAYOUT A4 ==================
+\geometry{
+  a4paper,
+  total={160mm,240mm},
+  left=25mm,
+  top=25mm,
+  bottom=25mm,
+  headheight=40pt
+}
+
+% ================== HEADER & FOOTER ==================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{%
+  \begin{tabular}{rl}
+    \includegraphics[width=8mm,height=8mm]{hcmut.jpg} &
+    \begin{tabular}{l}
+      \bfseries\ttfamily Trường Đại học Bách khoa - ĐHQG TP.HCM \\
+      \bfseries\ttfamily Khoa Khoa học và Kỹ thuật Máy tính
+    \end{tabular}
+  \end{tabular}%
+}
+\fancyfoot[R]{\scriptsize \bfseries \textcolor{red}{Trang \thepage/\pageref{LastPage}}}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+% ================== SECTION & SUBSECTION FORMAT ==================
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+
+\titleformat{\subsection}[block]
+  {\normalfont\large\bfseries}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}[block]
+  {\normalfont\large\bfseries}{\thesubsubsection}{0.5em}{}
+
+% subsubsubsection (nếu cần dùng sau này)
+\makeatletter
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}{1.5ex \@plus .2ex}{\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{4}{10em}{5em}}
+\makeatother
+
+% ================== CÁC THIẾT LẬP KHÁC ==================
+\setlength{\parskip}{0.39em}
+\setlength{\parindent}{2em}
+\everymath{\color{black}}
+\sloppy
+
+\captionsetup[figure]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=-9pt}
+\captionsetup[table]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=7pt}
+
+% ================== BẮT ĐẦU NỘI DUNG ==================
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{1cm}
+{\LARGE\bfseries ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH}\\[0.3cm]
+{\LARGE\bfseries TRƯỜNG ĐẠI HỌC BÁCH KHOA}\\[0.3cm]
+{\LARGE\bfseries KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH}\\[1cm]
+
+\includegraphics[width=4cm]{hcmut.jpg}\\[1cm]
+
+{\LARGE\bfseries MÔ HÌNH HÓA TOÁN HỌC}\\[0.5cm]
+{\LARGE\bfseries BÀI TẬP LỚN}\\[0.5cm]
+{\LARGE\bfseries LỚP L03}\\[0.5cm]
+
+\begin{tabular}{|c|>{\centering\arraybackslash}m{6.5cm}|c|}
+\hline
+\textbf{STT} & \textbf{Họ tên sinh viên} & \textbf{MSSV} \\
+\hline
+1 & Nguyễn Minh Hạnh & 2310895 \\
+\hline
+2 & Nguyễn Hưng Thịnh  & 2313287  \\
+\hline
+3 & Nguyễn Thái Hoàng  & 2311062 \\
+\hline
+4 & Hoàng Anh Duy & 2310458 \\
+\hline
+5 & Hồ Công Danh & 2310410 \\
+\hline
+\end{tabular}
+
+
+\vfill
+{\large Tp. Hồ Chí Minh, Tháng 4/2025}
+\end{titlepage}
+
+%% ================== BẢNG PHÂN CÔNG CÔNG VIỆC (NHÓM 5 NGƯỜI) ==================
+\cleardoublepage
+\thispagestyle{empty}
+
+\begin{center}
+    {\LARGE\bfseries BẢNG PHÂN CÔNG CÔNG VIỆC\par}
+    \vspace{1.8cm}
+
+    % Thu nhỏ font và điều chỉnh độ rộng cột để vừa trang A4
+    {\footnotesize
+    \begin{tabular}{|c|>{\centering\arraybackslash}p{3.8cm}|c|>{\raggedright\arraybackslash}p{7.0cm}|>{\centering\arraybackslash}p{2.2cm}|}
+    \hline
+    \textbf{STT} & \textbf{Họ và Tên} & \textbf{MSSV} & \textbf{Nhiệm vụ chính} & \textbf{Hoàn thành} \\
+    \hline
+    1 & Nguyễn Minh Hạnh & 2310895 &
+    \begin{itemize}[leftmargin=*,nosep]
+        \item Task 2 - Explicit computation of reachable markings
+        \item Viết báo cáo
+    \end{itemize} & {\textbf{100\%}} \\
+    \hline
+    2 & Nguyễn Hưng Thịnh & 2313287 &
+    \begin{itemize}[leftmargin=*,nosep]
+        \item Task 1 - Reading Petri nets from PNML files
+        \item Viết báo cáo
+    \end{itemize} & {\textbf{100\%}} \\
+    \hline
+    3 & Nguyễn Thái Hoàn & 2311062 &
+    \begin{itemize}[leftmargin=*,nosep]
+        \item Task 3 - Symbolic computation of reachable markings by using BDD
+    \end{itemize} & {\textbf{100\%}} \\
+    \hline
+    4 & Hoàng Anh Duy & 2310458 &
+    \begin{itemize}[leftmargin=*,nosep]
+        \item Task 5 - Optimization over reachable markings
+    \end{itemize} & {\textbf{100\%}} \\
+    \hline
+    5 & Hồ Công Danh & 2310410 &
+    \begin{itemize}[leftmargin=*,nosep]
+        \item Task 4 - Deadlock detection by using ILP and BDD
+    \end{itemize} & {\textbf{100\%}} \\
+    \hline
+    \end{tabular}
+    }
+\end{center}
+
+\vfill
+
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+
+\fontsize{13}{20}\selectfont
+
+\section*{Tóm tắt (Abstract)}
+\addcontentsline{toc}{section}{Tóm tắt (Abstract)}
+Bài tập lớn này tập trung vào việc mô hình hoá và phân tích mạng Petri 1-safe bằng ba hướng tiếp cận:
+(i) phương pháp tường minh (explicit) thông qua liệt kê toàn bộ không gian trạng thái bằng BFS/DFS,
+(ii) phương pháp biểu tượng dựa trên Binary Decision Diagrams (BDDs) để nén và biểu diễn tập marking một cách hiệu quả,
+và (iii) sử dụng Integer Linear Programming (ILP) nhằm phát hiện deadlock và thực hiện tối ưu hoá trên tập reachable markings.
+Mục tiêu của bài tập là giúp sinh viên hiểu rõ bản chất toán học của mạng Petri, nắm được cách triển khai thuật toán trên mô hình rời rạc,
+và so sánh ưu nhược điểm giữa các phương pháp biểu diễn trạng thái.
+Các kết quả thu được bao gồm tập reachable markings, phát hiện deadlock nếu có, và lời giải cho bài toán tối ưu tuyến tính trên mạng Petri.
+
+\section*{1. Giới thiệu}
+\addcontentsline{toc}{section}{1. Giới thiệu}
+Mạng Petri là một mô hình hình thức quan trọng trong mô phỏng hệ thống song song, phân tán và theo sự kiện.
+Nhờ cấu trúc gồm các place, transition và token, mạng Petri cho phép mô tả hành vi hệ thống một cách trực quan nhưng vẫn đảm bảo tính chính xác toán học.
+Trong thực tế, mạng Petri được ứng dụng trong phân tích giao thức truyền thông, mô hình hoá luồng công việc, hệ thống sản xuất tự động, và kiểm chứng chương trình song song.
+
+Bài tập lớn yêu cầu sinh viên phát triển một hệ thống nhỏ thực hiện ba nhiệm vụ chính:
+đọc mô hình từ PNML, tính reachable markings bằng hai phương pháp (tường minh và biểu tượng), và phát hiện deadlock bằng ILP kết hợp BDD.
+Thông qua đó, sinh viên có cơ hội tiếp cận các kỹ thuật thường dùng trong phân tích hình thức như symbolic model checking, representation compression và optimization-based reasoning.
+
+\section*{2. Lý thuyết nền tảng}
+\addcontentsline{toc}{section}{2. Lý thuyết nền tảng}
+\textbf{Mạng Petri 1-safe.}
+Một mạng Petri gồm tập place $P$, tập transition $T$, ma trận đầu vào $I$, ma trận đầu ra $O$, và marking ban đầu $M_0$.
+Với mạng 1-safe, tại mọi thời điểm mỗi place có tối đa một token, giúp giảm kích thước không gian trạng thái và thuận lợi khi mã hoá bằng BDD.
+
+\textbf{Reachability và đồ thị trạng thái.}
+Reachability là bài toán xác định tất cả marking có thể đạt được từ $M_0$ thông qua chuỗi firing hợp lệ.
+Đồ thị reachability có thể trở nên rất lớn do \textit{state-space explosion}, làm nổi bật nhu cầu sử dụng phương pháp symbolic.
+
+\textbf{Explicit reachability (BFS/DFS).}
+Tiếp cận tường minh duyệt trực tiếp không gian trạng thái bằng BFS hoặc DFS, sinh toàn bộ marking mới từ mỗi marking hiện tại.
+Phương pháp đơn giản, dễ cài đặt, nhưng không mở rộng tốt khi số marking tăng lớn.
+
+\textbf{Symbolic reachability bằng BDD.}
+Binary Decision Diagrams (BDDs) cho phép nén tập các marking thành dạng cây quyết định dạng chuẩn (ROBDD), giúp biểu diễn hàng triệu trạng thái mà không cần lưu từng marking tường minh.
+
+\textbf{Deadlock và ILP.}
+Deadlock là marking trong đó không có transition nào enabled.
+Kết hợp ILP và BDD cho phép: (i) kiểm tra marking dead có nằm trong reachable set, (ii) phát hiện deadlock với độ chính xác cao nhờ ràng buộc tuyến tính.
+
+\textbf{Tối ưu hoá tuyến tính trên reachable set.}
+Bài toán yêu cầu tìm marking $M \in Reach(M_0)$ tối đa hoá hàm mục tiêu dạng $c^\top M$.
+ILP hoặc symbolic filtering giúp thu hẹp không gian tìm kiếm, đảm bảo tìm được lời giải hợp lệ hoặc báo không tồn tại nếu reachable set rỗng theo tiêu chí.
+
+\section*{3. Task 1 --- Đọc mạng Petri từ file PNML}
+\addcontentsline{toc}{section}{3. Task 1 --- Đọc mạng Petri từ file PNML}
+
+Task 1 tập trung vào việc hiện thực một bộ phân tích cú pháp (parser) mạnh mẽ cho các file PNML (Petri Net Markup Language), chuyển đổi các định nghĩa mạng Petri dựa trên XML thành các cấu trúc dữ liệu nội bộ hiệu quả, phù hợp cho các tác vụ phân tích tiếp theo. Bộ parser phải xử lý được định dạng PNML chuẩn bao gồm các phần tử page lồng nhau, trích xuất tất cả các thành phần mạng và xây dựng các biểu diễn được lập chỉ mục để truy xuất phần tử với độ phức tạp O(1).
+
+\subsection*{3.1 Định dạng PNML và Yêu cầu}
+\addcontentsline{toc}{subsection}{3.1 Định dạng PNML và Yêu cầu}
+
+PNML là một định dạng chuẩn dựa trên XML để biểu diễn mạng Petri, được sử dụng rộng rãi trong các công cụ kiểm chứng mô hình (model checking). Định dạng này cung cấp một cấu trúc phân cấp với các phần tử chính sau:
+
+\begin{itemize}
+    \item \textbf{Places}: Đại diện cho các điều kiện hoặc trạng thái trong hệ thống, mỗi place có một ID duy nhất và tùy chọn marking ban đầu (số lượng token).
+    \item \textbf{Transitions}: Đại diện cho các sự kiện hoặc hành động làm thay đổi trạng thái hệ thống.
+    \item \textbf{Arcs}: Các kết nối có hướng giữa place và transition (hoặc ngược lại).
+    \item \textbf{Pages}: Các container lồng nhau tùy chọn để tổ chức các phần tử mạng theo cấu trúc phân cấp.
+\end{itemize}
+
+Cấu trúc PNML chuẩn tuân theo mẫu sau:
+
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="..." type="...">
+    <place id="p1">
+      <name><text>Place Name</text></name>
+      <initialMarking><text>1</text></initialMarking>
+    </place>
+    <transition id="t1">
+      <name><text>Transition Name</text></name>
+    </transition>
+    <arc id="a1" source="p1" target="t1"/>
+    <page id="page1">
+      <!-- Nested elements -->
+    </page>
+  </net>
+</pnml>
+\end{verbatim}
+
+Bộ parser phải xử lý chính xác các phần tử \texttt{<page>} lồng nhau, có thể chứa các place, transition, arc hoặc thậm chí các page khác một cách đệ quy.
+
+\subsection*{3.2 Thiết kế Cấu trúc Dữ liệu}
+\addcontentsline{toc}{subsection}{3.2 Thiết kế Cấu trúc Dữ liệu}
+
+Lớp \texttt{PetriNet} hiện thực một biểu diễn hiệu quả được tối ưu hóa cho cả hiệu năng lưu trữ và truy xuất. Thiết kế sử dụng các vector được lập chỉ mục kết hợp với hash map để đạt được khả năng truy xuất O(1) trong khi vẫn duy trì khả năng duyệt tuần tự.
+
+\subsubsection*{3.2.1 Các thành phần dữ liệu cốt lõi}
+
+\textbf{1. Vector lưu trữ ID:}
+\begin{verbatim}
+std::vector<std::string> place_ids;        // Kích thước: N places
+std::vector<std::string> transition_ids;   // Kích thước: M transitions
+\end{verbatim}
+
+Các vector này lưu trữ các định danh duy nhất cho tất cả các place và transition. Vị trí chỉ mục đóng vai trò là tham chiếu chính tắc cho phần tử đó trong toàn bộ hệ thống (ví dụ: \texttt{place\_ids[i]} là "Place i").
+
+\textbf{2. Vector Marking ban đầu:}
+\begin{verbatim}
+std::vector<int> initial_marking;          // Kích thước: N places
+\end{verbatim}
+
+Lưu trữ số lượng token ban đầu cho mỗi place. Đối với mạng Petri 1-safe, các giá trị thường là 0 hoặc 1, mặc dù hiện thực hỗ trợ các giá trị nguyên bất kỳ để tổng quát hóa. Mối quan hệ là: \texttt{initial\_marking[i]} = số token trong \texttt{place\_ids[i]}.
+
+\textbf{3. Ma trận kề (Biểu diễn thưa):}
+\begin{verbatim}
+std::vector<std::vector<int>> pre_matrix;   // Kích thước: [M][variable]
+std::vector<std::vector<int>> post_matrix;  // Kích thước: [M][variable]
+\end{verbatim}
+
+Các ma trận này sử dụng biểu diễn thưa trong đó:
+\begin{itemize}
+    \item \texttt{pre\_matrix[t]}: Vector các chỉ số place cung cấp đầu vào cho transition \texttt{t}.
+    \item \texttt{post\_matrix[t]}: Vector các chỉ số place nhận đầu ra từ transition \texttt{t}.
+\end{itemize}
+
+\textbf{Ví dụ:} Nếu transition 0 có quy tắc $\{p_1, p_3\} \to \{p_2, p_4\}$, thì:
+\begin{itemize}
+    \item \texttt{pre\_matrix[0] = \{1, 3\}}
+    \item \texttt{post\_matrix[0] = \{2, 4\}}
+\end{itemize}
+
+\textbf{4. Map truy xuất nhanh (Private):}
+\begin{verbatim}
+std::unordered_map<std::string, int> place_map;
+std::unordered_map<std::string, int> transition_map;
+\end{verbatim}
+
+Hash map cho phép chuyển đổi O(1) từ ID dạng chuỗi sang chỉ số nguyên. Các map này được sử dụng nội bộ trong quá trình phân tích cú pháp và được cung cấp thông qua các phương thức getter public.
+
+\subsubsection*{3.2.2 Ưu điểm của thiết kế này}
+
+\begin{enumerate}
+    \item \textbf{Chỉ mục hiệu quả}: Chỉ số nguyên cho phép truy cập mảng trực tiếp thay vì so sánh chuỗi.
+    \item \textbf{Lưu trữ cung thưa}: Chỉ lưu trữ các kết nối thực tế, không phải toàn bộ ma trận $N \times M$.
+    \item \textbf{Thân thiện với Cache}: Lưu trữ tuần tự cải thiện việc sử dụng CPU cache trong quá trình duyệt.
+    \item \textbf{An toàn kiểu}: Tách biệt giữa việc tra cứu ID và các thao tác cấu trúc.
+\end{enumerate}
+
+\subsection*{3.3 Thuật toán Hiện thực}
+\addcontentsline{toc}{subsection}{3.3 Thuật toán Hiện thực}
+
+Việc hiện thực parser sử dụng thư viện TinyXML-2 để xử lý XML và bao gồm hai giai đoạn chính: trích xuất phần tử đệ quy và xây dựng quan hệ cung.
+
+\subsubsection*{3.3.1 Giai đoạn 1: Trích xuất phần tử đệ quy}
+
+Một hàm helper đệ quy \texttt{parseElements} duyệt cây XML theo chiều sâu, tự động xử lý các phần tử \texttt{<page>} lồng nhau:
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\caption{Trích xuất phần tử PNML đệ quy}
+\KwIn{Phần tử XML, vector lưu trữ, map}
+\KwOut{Danh sách place/transition đã điền, danh sách cung thô}
+\For{mỗi phần tử con trong phần tử hiện tại}{
+    \uIf{con là $<$page$>$}{
+        Gọi đệ quy parseElements(con)\;
+    }
+    \uElseIf{con là $<$place$>$ với ID hợp lệ}{
+        Thêm ID vào vector place\_ids\;
+        Tạo ánh xạ chỉ số trong place\_map\;
+        Trích xuất $<$initialMarking$>$ nếu có\;
+        Lưu số lượng token vào vector initial\_marking\;
+    }
+    \uElseIf{con là $<$transition$>$ với ID hợp lệ}{
+        Thêm ID vào vector transition\_ids\;
+        Tạo ánh xạ chỉ số trong transition\_map\;
+    }
+    \uElseIf{con là $<$arc$>$ với source và target}{
+        Lưu thông tin cung (source, target) vào danh sách tạm\;
+    }
+}
+\end{algorithm}
+
+Đệ quy đảm bảo rằng tất cả các phần tử được tìm thấy bất kể độ sâu lồng nhau, giúp parser hoạt động mạnh mẽ với các cấu trúc file PNML khác nhau.
+
+\subsubsection*{3.3.2 Giai đoạn 2: Xây dựng quan hệ cung}
+
+Sau khi tất cả các nút được lập chỉ mục, parser xử lý các cung trong lần duyệt thứ hai để xây dựng \texttt{pre\_matrix} và \texttt{post\_matrix}:
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\caption{Xây dựng Ma trận Cung}
+\KwIn{Danh sách cung tạm, place\_map, transition\_map}
+\KwOut{pre\_matrix và post\_matrix đã điền}
+Khởi tạo pre\_matrix và post\_matrix với các vector rỗng\;
+\For{mỗi cung trong danh sách cung tạm}{
+    \uIf{source là Place VÀ target là Transition}{
+        $p\_idx \gets$ place\_map[source]\;
+        $t\_idx \gets$ transition\_map[target]\;
+        Thêm $p\_idx$ vào pre\_matrix[$t\_idx$]\;
+    }
+    \uElseIf{source là Transition VÀ target là Place}{
+        $t\_idx \gets$ transition\_map[source]\;
+        $p\_idx \gets$ place\_map[target]\;
+        Thêm $p\_idx$ vào post\_matrix[$t\_idx$]\;
+    }
+}
+\end{algorithm}
+
+Cách tiếp cận hai giai đoạn này tách biệt các mối quan tâm và đảm bảo tất cả các ID nút đều được biết trước khi cố gắng giải quyết các kết nối cung.
+
+\subsubsection*{3.3.3 Xác nhận và Xử lý lỗi}
+
+Phương thức \texttt{verifyConsistency()} thực hiện xác nhận cơ bản:
+
+\begin{itemize}
+    \item Kiểm tra xem có ít nhất một place hoặc transition được tìm thấy hay không.
+    \item Báo cáo thống kê phân tích cú pháp (số lượng place/transition).
+    \item Trả về false nếu mạng rỗng hoặc không đúng định dạng.
+\end{itemize}
+
+Xử lý lỗi bổ sung bao gồm:
+\begin{itemize}
+    \item Lỗi tải file (kiểm tra XML\_SUCCESS).
+    \item Thiếu các phần tử gốc \texttt{<pnml>} hoặc \texttt{<net>}.
+    \item Xử lý nhẹ nhàng các thuộc tính tùy chọn bị thiếu (tên, marking).
+\end{itemize}
+
+\subsection*{3.4 Các Chi tiết Hiện thực Quan trọng}
+\addcontentsline{toc}{subsection}{3.4 Các Chi tiết Hiện thực Quan trọng}
+
+\subsubsection*{3.4.1 Xử lý Page lồng nhau}
+
+Việc duyệt đệ quy xử lý chính xác các phần tử \texttt{<page>} lồng nhau tùy ý:
+
+\begin{verbatim}
+if (tag == "page") {
+    parseElements(child, p_ids, t_ids, init_marking, 
+                  p_map, t_map, raw_arcs);
+}
+\end{verbatim}
+
+Điều này đảm bảo các mô hình được tổ chức thành các phần logic hoặc phân cấp được phân tích cú pháp chính xác.
+
+\subsubsection*{3.4.2 Trích xuất Marking ban đầu}
+
+Số lượng token được trích xuất từ các phần tử XML lồng nhau:
+
+\begin{verbatim}
+<initialMarking>
+  <text>1</text>
+</initialMarking>
+\end{verbatim}
+
+Parser điều hướng qua cả hai cấp (\texttt{initialMarking → text}) và mặc định là 0 nếu phần tử bị thiếu.
+
+\subsubsection*{3.4.3 Phát hiện hướng cung}
+
+Parser tự động xác định hướng cung dựa trên loại nút:
+
+\begin{itemize}
+    \item \textbf{Place → Transition}: Cung đầu vào, được lưu trong \texttt{pre\_matrix}.
+    \item \textbf{Transition → Place}: Cung đầu ra, được lưu trong \texttt{post\_matrix}.
+\end{itemize}
+
+Việc phát hiện tự động này loại bỏ nhu cầu về các thuộc tính loại cung rõ ràng.
+
+\subsection*{3.5 Giao diện Public và Cách sử dụng}
+\addcontentsline{toc}{subsection}{3.5 Giao diện Public và Cách sử dụng}
+
+Lớp \texttt{PetriNet} cung cấp một giao diện sạch cho các tác vụ phía sau:
+
+\textbf{Phương thức Phân tích cú pháp chính:}
+\begin{verbatim}
+bool parsePNML(const std::string& filename);
+\end{verbatim}
+Trả về \texttt{true} nếu phân tích thành công, \texttt{false} nếu có lỗi.
+
+\textbf{Phương thức Tra cứu ID:}
+\begin{verbatim}
+int getPlaceIndex(const std::string& id) const;
+int getTransitionIndex(const std::string& id) const;
+\end{verbatim}
+Trả về chỉ số nguyên cho một ID chuỗi nhất định, hoặc -1 nếu không tìm thấy. Độ phức tạp O(1).
+
+\textbf{Ví dụ sử dụng:}
+\begin{verbatim}
+PetriNet net;
+if (net.parsePNML("model.pnml")) {
+    // Truy cập places
+    for (size_t i = 0; i < net.place_ids.size(); ++i) {
+        cout << "Place " << i << ": " << net.place_ids[i]
+             << " (Tokens: " << net.initial_marking[i] << ")" << endl;
+    }
+    
+    // Kiểm tra đầu vào transition
+    int t_idx = net.getTransitionIndex("t_produce");
+    for (int p_idx : net.pre_matrix[t_idx]) {
+        cout << "Input: " << net.place_ids[p_idx] << endl;
+    }
+}
+\end{verbatim}
+
+\subsection*{3.6 Kiểm thử và Xác nhận}
+\addcontentsline{toc}{subsection}{3.6 Kiểm thử và Xác nhận}
+
+Parser đã được kiểm thử trên nhiều loại file PNML:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|l|}
+\hline
+\textbf{Danh mục} & \textbf{Số file} & \textbf{Độ phức tạp} & \textbf{Đặc điểm} \\
+\hline
+Example & 7 & Cơ bản & Các mẫu producer-consumer đơn giản \\
+Simple & 29 & Thấp & Các mô hình cổ điển (philosophers, mutex) \\
+Medium & 7 & Trung bình & 50-100 places/transitions \\
+Large & 8 & Cao & 200+ places, page lồng nhau \\
+\hline
+\end{tabular}
+\caption{Các danh mục file kiểm thử PNML}
+\end{table}
+
+\textbf{Kết quả kiểm thử:}
+\begin{itemize}
+    \item Tất cả 51 file kiểm thử đều được phân tích cú pháp thành công.
+    \item Xử lý chính xác các page lồng nhau sâu tới 3 cấp.
+    \item Xác nhận số lượng cung khớp với kiểm tra thủ công.
+    \item Hiệu năng: < 10ms cho các mô hình đơn giản, < 500ms cho các mô hình lớn.
+\end{itemize}
+
+\textbf{Chức năng đã xác minh:}
+\begin{itemize}
+    \item Trích xuất Place và transition với chỉ mục chính xác.
+    \item Giá trị marking ban đầu khớp với đặc tả PNML.
+    \item Pre-matrix và post-matrix phản ánh chính xác cấu trúc cung.
+    \item Xử lý page lồng nhau bảo toàn tất cả các phần tử.
+    \item Không rò rỉ bộ nhớ (đã xác minh bằng Valgrind trên các bản build Linux).
+\end{itemize}
+
+\subsection*{3.7 Tích hợp với các Task sau}
+\addcontentsline{toc}{subsection}{3.7 Tích hợp với các Task sau}
+
+Các cấu trúc dữ liệu đã phân tích hỗ trợ trực tiếp cho tất cả các tác vụ tiếp theo:
+
+\begin{itemize}
+    \item \textbf{Task 2 (BFS/DFS)}: Sử dụng \texttt{initial\_marking}, \texttt{pre\_matrix}, và \texttt{post\_matrix} để tính toán các transition được kích hoạt (enabled) và bắn (fire) chúng.
+    \item \textbf{Task 3 (BDD)}: Chuyển đổi chỉ số place thành biến BDD để mã hóa ký hiệu.
+    \item \textbf{Task 4 (Deadlock)}: Sử dụng pre-matrix để xây dựng các ràng buộc ILP cho các marking chết (dead markings).
+    \item \textbf{Task 5 (Optimization)}: Hoạt động trên các marking được lập chỉ mục nhất quán với place\_ids.
+\end{itemize}
+
+Cơ chế lập chỉ mục nhất quán (chỉ số nguyên) loại bỏ chi phí so sánh chuỗi trong các vòng lặp quan trọng về hiệu năng.
+
+\subsection*{3.8 Đặc điểm Hiệu năng}
+\addcontentsline{toc}{subsection}{3.8 Đặc điểm Hiệu năng}
+
+\textbf{Độ phức tạp thời gian:}
+\begin{itemize}
+    \item Phân tích cú pháp XML: $O(E)$ với $E$ là số lượng phần tử XML.
+    \item Xử lý cung: $O(A)$ với $A$ là số lượng cung.
+    \item Tổng thể: $O(E + A)$ tuyến tính theo kích thước file.
+\end{itemize}
+
+\textbf{Độ phức tạp không gian:}
+\begin{itemize}
+    \item Lưu trữ Place/Transition: $O(N + M)$.
+    \item Lưu trữ cung (thưa): $O(A)$ thay vì ma trận dày $O(N \times M)$.
+    \item Hash map: $O(N + M)$.
+    \item Tổng thể: $O(N + M + A)$ tỷ lệ thuận với kích thước mạng.
+\end{itemize}
+
+\textbf{Các kỹ thuật tối ưu hóa:}
+\begin{itemize}
+    \item Biểu diễn ma trận thưa tránh lưu trữ các số 0.
+    \item Hash map cung cấp khả năng tra cứu ID O(1) thay vì tìm kiếm tuyến tính O(N).
+    \item Duyệt đệ quy một lần tránh việc đọc file nhiều lần.
+    \item Dự trữ dung lượng (reserve capacity) trong vector khi biết trước kích thước.
+\end{itemize}
+
+\subsection*{3.9 Hạn chế và Cải tiến Tương lai}
+\addcontentsline{toc}{subsection}{3.9 Hạn chế và Cải tiến Tương lai}
+
+\textbf{Hạn chế hiện tại:}
+\begin{itemize}
+    \item Giả định trọng số cung là 1 (phù hợp với mạng 1-safe).
+    \item Không xác nhận thuộc tính 1-safe (giả định đầu vào hợp lệ).
+    \item Thông báo lỗi hạn chế đối với XML không đúng định dạng.
+    \item Không hỗ trợ mạng Petri có màu hoặc các phần mở rộng về thời gian.
+\end{itemize}
+
+\textbf{Cải tiến khả thi:}
+\begin{itemize}
+    \item Thêm hỗ trợ trọng số cung cho mạng Petri tổng quát.
+    \item Hiện thực xác nhận 1-safe với đầu ra chẩn đoán.
+    \item Cải thiện báo cáo lỗi với số dòng.
+    \item Hỗ trợ các phần mở rộng PNML (màu, thời gian, phân cấp).
+    \item Phân tích cú pháp tăng dần cho các file rất lớn.
+    \item Chuyển đổi đầu ra sang các định dạng khác (DOT, JSON).
+\end{itemize}
+
+\subsection*{3.10 Kết luận}
+\addcontentsline{toc}{subsection}{3.10 Kết luận}
+
+Task 1 đã hiện thực thành công một bộ phân tích cú pháp PNML mạnh mẽ:
+\begin{itemize}
+    \item Xử lý chính xác định dạng PNML chuẩn bao gồm các page lồng nhau.
+    \item Cung cấp các cấu trúc dữ liệu hiệu quả được tối ưu hóa cho cả lưu trữ và truy cập.
+    \item Tích hợp liền mạch với tất cả các tác vụ phân tích phía sau.
+    \item Thể hiện hiệu năng tốt trên các mô hình có độ phức tạp khác nhau.
+\end{itemize}
+
+Sự kết hợp giữa TinyXML-2 để xử lý XML và các cấu trúc dữ liệu được thiết kế cẩn thận tạo ra một nền tảng vững chắc cho toàn bộ dự án. Độ tin cậy và hiệu quả của parser cho phép phân tích tự tin các thuộc tính của mạng Petri trong các tác vụ tiếp theo.
+
+\section*{4. Task 2 --- Phân tích việc hiện thực BFS và DFS}
+\addcontentsline{toc}{section}{4. Task 2 --- Phân tích việc hiện thực BFS và DFS}
+
+Trong Task 2, hai thuật toán Breadth-First Search (BFS) và Depth-First Search (DFS) được cài đặt trong hai file \texttt{BFS.cpp} và \texttt{DFS.cpp}. Mục tiêu của hai file này là xác định tập các marking reachable của một mạng Petri 1-safe dựa trên marking ban đầu $M_0$, ma trận Input $I$ và Output $O$.
+
+\subsection*{4.1 Cấu trúc chung trong BFS.cpp và DFS.cpp}
+Cả hai file đều triển khai các thành phần chính sau:
+\begin{itemize}
+    \item Hàm \texttt{\_infer\_IO}: chuẩn hóa kích thước ma trận $I$ và $O$ về dạng \textit{places $\times$ transitions}.
+    \item Hàm \texttt{enabled(M, j)}: xác định transition $j$ có được kích hoạt tại marking $M$ hay không:
+    \[
+    M[i] \ge I[i][j], \quad M[i] - I[i][j] + O[i][j] \le 1.
+    \]
+    \item Hàm \texttt{fire(M, j)}: tạo marking mới:
+    \[
+    M_{\text{new}}[i] = M[i] - I[i][j] + O[i][j].
+    \]
+    \item Tập \texttt{visited} để tránh thăm lại marking.
+\end{itemize}
+
+\subsection*{4.2 Thuật toán trong BFS.cpp}
+Sử dụng hàng đợi (queue), khám phá theo mức, đảm bảo tìm được đường ngắn nhất về số bước firing.
+
+\subsection*{4.3 Thuật toán trong DFS.cpp}
+Sử dụng ngăn xếp (stack), đi sâu theo từng nhánh trước.
+
+\subsection*{4.4 So sánh nhanh giữa BFS.cpp và DFS.cpp}
+\begin{itemize}
+    \item Cùng trả về tập reachable marking giống nhau.
+    \item BFS dùng queue, DFS dùng stack.
+    \item BFS tìm theo mức, DFS tìm theo chiều sâu.
+\end{itemize}
+
+\section*{5. Task 3 --- Tính toán không gian trạng thái bằng BDD}
+\addcontentsline{toc}{section}{5. Task 3 --- Tính toán không gian trạng thái bằng BDD}
+% Nội dung Task 3 (BDD + ILP) sẽ chèn vào đây
+
+Trong Task 3, nhóm chúng em sử dụng kỹ thuật \textit{Symbolic Model Checking} với thư viện \textbf{CUDD} để khắc phục hạn chế về bộ nhớ của phương pháp duyệt tường minh khi không gian trạng thái bùng nổ.
+
+\subsection*{5.1 Mã hóa trạng thái và Biến BDD}
+Để biểu diễn mạng Petri 1-safe, nhóm chúng em ánh xạ mỗi place $p_i$ thành cặp biến Boolean:
+\begin{itemize}
+    \item $x_i$: Trạng thái hiện tại.
+    \item $y_i$: Trạng thái kế tiếp.
+\end{itemize}
+Trong class \texttt{BDDReachability}, các biến được khởi tạo xen kẽ theo thứ tự $x_0, y_0, x_1, y_1, \dots$ để tối ưu hóa kích thước biểu diễn của BDD khi các place không thay đổi trạng thái ($x_i \leftrightarrow y_i$).
+
+\subsection*{5.2 Xây dựng Quan hệ Chuyển trạng thái (Transition Relation)}
+Quan hệ chuyển đổi toàn cục $R(x, y)$ là tổng tuyển (OR) của các quan hệ chuyển đổi riêng lẻ cho từng transition $t_k$. Với mỗi $t_k$, logic được xây dựng như sau:
+\[ R_k(x, y) = \underbrace{(\bigwedge_{p \in ^\bullet t_k} x_p)}_{\text{Enabled}} \wedge \underbrace{(\text{Logic cập nhật } y \text{ theo } x)}_{\text{Change}} \]
+Phần \textit{Change} xác định trạng thái $y$ dựa trên cấu trúc cung: tiêu thụ token ($y=0$), sinh token ($y=1$), hoặc giữ nguyên ($x \leftrightarrow y$) nếu place không liên quan.
+
+\subsection*{5.3 Thuật toán Symbolic BFS}
+Nhóm chúng em áp dụng thuật toán tìm điểm bất động (Fixed-point iteration) để tính tập trạng thái đạt tới được ($Reach$):
+\begin{enumerate}
+    \item Khởi tạo $Reach$ từ marking ban đầu $M_0$.
+    \item Tại mỗi bước lặp, tính tập trạng thái kế tiếp bằng phép \texttt{AndAbstract}:
+    \[ Next\_y = \exists x . (Reach(x) \wedge R(x, y)) \]
+    \item Chuyển đổi biến $y$ về $x$ bằng hàm \texttt{SwapVariables} và hợp nhất vào tập $Reach$.
+    \item Lặp lại cho đến khi tập $Reach$ không còn thay đổi.
+\end{enumerate}
+
+\subsection*{5.4 Kết quả}
+Hàm \texttt{compute\_reachable\_markings} trả về:
+\begin{itemize}
+    \item BDD biểu diễn tập $Reach$ (dùng cho Task 4).
+    \item Số lượng trạng thái chính xác được tính bằng hàm \texttt{CountMinterm}, cho phép đếm nhanh chóng ngay cả khi không gian trạng thái rất lớn.
+\end{itemize}
+
+\section*{6. Task 4}
+\addcontentsline{toc}{section}{6. Task 4}
+\title{Deadlock Detection using ILP-BDD}
+\section{File: Deadlock\_ILP.h}
+\subsection{Class DeadlockDetector}
+Lớp chính thực hiện thuật toán ILP-BDD. Các thành phần chính:
+\begin{itemize}
+\item PetriNet: mô tả mạng Petri
+\item Cudd: BDD manager
+\item Reachable BDD: tập reachable markings
+\end{itemize}
+
+
+\subsection{Hàm check\_reachability\_with\_bdd}
+Kiểm tra một marking nhị phân có thuộc reachable set bằng cách tạo cube BDD và giao với reachable BDD.
+
+
+\section{File: Deadlock\_ILP.cpp}
+
+
+\subsection{Constructor}
+Gán tham chiếu đến PetriNet, BDD manager và Reachable BDD.
+
+
+\subsection{Hàm get\_num\_places}
+Lấy số lượng places qua kích thước vector place\_ids.
+
+
+\subsection{Hàm create\_dead\_marking\_ilp\_model}
+Tạo mô hình ILP:
+\begin{itemize}
+\item mỗi biến là nhị phân $M_i$
+\item hàm mục tiêu bằng 0 (tìm nghiệm khả thi)
+\item thêm ràng buộc dead marking
+\end{itemize}
+
+
+\subsection{Hàm add\_dead\_marking\_constraints}
+Ràng buộc đảm bảo mỗi transition không thể kích hoạt:
+\[
+\sum_{P_i \in {}^\bullet T_j} M_i \le |{}^\bullet T_j| - 1
+\]
+
+
+\subsection{Hàm add\_cut\_constraint}
+Loại bỏ nghiệm ILP không reachable:
+\[
+\sum_{i: M^*_i = 1} M_i - \sum_{i: M^*_i = 0} M_i \le |\{i | M^*_i = 1\}| - 1
+\]
+
+
+\subsection{Hàm find\_deadlock\_ilp\_bdd}
+Vòng lặp chính:
+\begin{enumerate}
+\item Giải ILP để tìm dead marking $M^*$
+\item Kiểm tra reachable bằng BDD
+\item Nếu reachable: trả về deadlock
+\item Nếu không: thêm cut constraint
+\item Nếu ILP không còn nghiệm: không có deadlock
+\end{enumerate}
+
+
+\section{File: main.cpp}
+Quy trình chính:
+\begin{enumerate}
+\item Đọc file PNML
+\item Parse mạng Petri
+\item Tính reachable BDD
+\item Khởi tạo DeadlockDetector
+\item Tìm deadlock bằng ILP-BDD
+\item In kết quả
+\end{enumerate}
+
+\section*{7. Task 5}
+\addcontentsline{toc}{section}{7. Task 5}
+% Task 5: Tối ưu hoá trên tập marking có thể đạt được (Optimization)
+Task 5 tập trung vào việc giải bài toán tối ưu hoá tuyến tính trên tập các marking có thể đạt được từ marking ban đầu $M_0$:
+\begin{equation*}
+	\text{maximize }\; c^{\top}M \quad\text{với } M\in\mathrm{Reach}(M_0).
+\end{equation*}
+
+\subsection*{7.1 Ý tưởng thực hiện}
+
+\begin{itemize}
+    \item Dùng thuật toán khám phá trạng thái (BFS) để thu được toàn bộ tập marking có thể đạt được $\mathrm{Reach}(M_0)$ 
+    \item Duyệt từng marking trong tập thu được và tính giá trị mục tiêu tuyến tính $v(M)=c^{\top}M = \sum_i c_i\,m_i$.
+    \item Chọn marking có giá trị lớn nhất làm nghiệm $M^*$. Nếu tập reachable rỗng thì báo "none".
+\end{itemize}
+
+\subsection*{7.2 Cách thực hiện }
+Thực hiện theo các bước sau:
+\begin{enumerate}
+    \item Tính tập reachable: gọi hàm BFS để lấy danh sách hoặc tập các \texttt{Marking}.
+    \item Chuẩn bị vector trọng số $c$ (kiểu số nguyên, nên dùng 64-bit nếu trọng số lớn).
+    \item Duyệt danh sách marking: với mỗi marking $M$, tính $v(M)=\sum_i c_i\,m_i$; giữ lại giá trị và marking tốt nhất.
+    \item Trả về $M^*$ và $v(M^*)$; nếu danh sách rỗng trả "none".
+\end{enumerate}
+
+Lưu ý :
+\begin{itemize}
+    \item BFS có thể tốn thời gian/bộ nhớ nếu không gian trạng thái lớn; trong trường hợp đó cần cân nhắc biểu diễn symbolc bằng BDD hoặc giải pháp ILP kết hợp BDD.
+    \item Đảm bảo dùng kiểu số phù hợp để tránh tràn khi cộng các $c_i\,m_i$.
+\end{itemize}
+
+\subsection*{7.3 Các file được thực hiện:}
+\addcontentsline{toc}{subsection}{Các file được thực hiện}
+
+
+\begin{itemize}
+    \item \texttt{optimization.h}:
+        \begin{itemize}
+            \item Mô tả: Khai báo lớp \texttt{Optimizer} và các kiểu dữ liệu liên quan.
+            \item Giao diện chính: constructor nhận \texttt{const std::vector<Marking>\& markings, const std::vector<long long>\& c}, và các phương thức \texttt{solve()}, \texttt{getOptimalValue()} (kiểu \texttt{long long}) và \texttt{getComputationTimeMs()} (kiểu \texttt{double}).
+            \item Kiểu dữ liệu: dùng alias \texttt{using Marking = std::vector<int>;} để biểu diễn một marking; dùng 64-bit cho tổng trọng số để tránh tràn.
+            \item Mục đích: tách phần khai báo để các module khác (ví dụ bộ test) dễ bao gồm và gọi.
+        \end{itemize}
+
+    \item \texttt{optimization.cpp}:
+        \begin{itemize}
+            \item Mô tả: Cài đặt lớp \texttt{Optimizer} theo chiến lược vét cạn.
+            \item Thuật toán: hàm \texttt{solve()} duyệt toàn bộ \texttt{markings}, với mỗi \texttt{Marking M} tính giá trị
+            \[ v(M)=\sum_i c_i\cdot m_i, \]
+            sử dụng kiểu \texttt{long long} cho tổng; giữ marking có giá trị lớn nhất.
+            \item Đo thời gian: dùng \texttt{std::chrono::steady\_clock} để đo thời gian thực thi phần tối ưu hoá và lưu vào \texttt{computationTimeMs}.
+            \item Trả về: marking tối ưu (hoặc một flag/nút trả về nếu danh sách rỗng) và cho phép truy xuất giá trị tối ưu và thời gian.
+            \item Ghi chú về hiệu năng: độ phức tạp tối đa của bước này là \(O(K\times p)\) với \(K\) là số marking và \(p\) số place.
+        \end{itemize}
+
+    \item \texttt{main.cpp} (test harness):
+        \begin{itemize}
+            \item Mô tả: chứa tập test mẫu dùng để kiểm chứng kết quả và đo thời gian. Các test tiêu biểu:
+                \begin{itemize}
+                    \item Test chu kỳ (3 places) — kiểm tra tập reachable nhỏ và nghiệm rõ ràng.
+                    \item Test phức tạp (nhiều transitions, nhiều places) — kiểm tra tính đúng đắn khi có nhiều marking.
+                    \item Test stress (ví dụ 5 places tạo 32 marking) — đo thời gian toàn bộ pipeline.
+                    \item Test trọng số âm / hỗn hợp — kiểm tra xử lý trọng số âm.
+                \end{itemize}
+            \item Cách gọi: chương trình minh họa cách lấy danh sách marking (gọi \texttt{bfs\_reachable(...)} từ module \texttt{reachable\_marking\_BFS\_DFS}) rồi khởi tạo \texttt{Optimizer} và gọi \texttt{solve()}.
+            \item Output: in marking tối ưu, giá trị mục tiêu và thời gian tối ưu hoá.
+        \end{itemize}
+
+    \item \texttt{Makefile}:
+        \begin{itemize}
+            \item Mục tiêu chính: \texttt{all} (biên dịch), \texttt{clean} (dọn file tạm), \texttt{run} (biên dịch rồi chạy test).
+            \begin{verbatim}
+cd MHH/Optimization
+g++ -std=c++17 main.cpp optimization.cpp ../reachable_marking_BFS_DFS/BFS.cpp ../reachable_marking_BFS_DFS/PetriNet.cpp -o optimization.exe
+./optimization.exe
+            \end{verbatim}
+        \end{itemize}
+
+    % \item \texttt{README.md}:
+    %     \begin{itemize}
+    %         \item Mô tả: hướng dẫn ngắn cách biên dịch, chạy và đường dẫn đến các file kết quả (ví dụ \texttt{TEST\_REPORT.md}).
+    %         \item Nội dung: câu lệnh build/run, yêu cầu môi trường (g++/MinGW, C++17), và ví dụ đầu ra ngắn để người đọc xác nhận module chạy đúng.
+    %     \end{itemize}
+
+    % \item \texttt{TEST\_REPORT.md}:
+    %     \begin{itemize}
+    %         \item Mô tả: báo cáo chi tiết các thử nghiệm đã thực hiện, bao gồm số marking, thời gian khám phá (BFS), thời gian tối ưu hoá (vét cạn) và thông số môi trường (trình biên dịch, CPU, OS).
+    %         \item Nội dung điển hình: bảng tóm tắt mỗi test (tên test, \#places, \#transitions, \#markings, thời gian BFS ms, thời gian tối ưu ms, kết luận).
+    %     \end{itemize}
+\end{itemize}
+
+\subsection*{Độ phức tạp và hiệu năng}
+\addcontentsline{toc}{subsection}{Độ phức tạp và hiệu năng}
+Gọi $K=|\mathrm{Reach}(M_0)|$, $p=|P|$, $t=|T|$:
+\begin{itemize}
+    \item Khám phá BFS: $O(K\times t)$ (xét giới hạn thô khi mỗi marking có thể thử nhiều transition).
+    \item Tối ưu (vét cạn): $O(K\times p)$.
+    \item Tổng: $O(K\times (t+p))$; không gian lưu: $O(K\times p)$ để lưu các marking.
+\end{itemize}
+Thực nghiệm trên các test mẫu cho thấy phần tính $c^{\top}M$ rất nhanh; phần tốn tài nguyên nhất thường là bước khám phá reachable.
+
+\subsection*{Hạn chế và hướng cải tiến}
+\addcontentsline{toc}{subsection}{Hạn chế và hướng cải tiến}
+\begin{itemize}
+    \item Khi $K$ lớn (ví dụ $>10^6$), phương pháp vét cạn không khả thi; các hướng cải tiến:
+        \begin{itemize}
+            \item Dùng BDD (symbolic) để lưu trữ/lọc marking trước khi tính mục tiêu.
+            \item Kết hợp ILP: mã hoá biến lựa chọn marking và dùng solver (GLPK/CPLEX) cùng các ràng buộc cắt (cut) để loại nghiệm không reachable (yêu cầu tương tác với BDD hoặc danh sách marking).
+            \item Thuật toán tìm kiếm có hướng (branch-and-bound, heuristic) để cắt nhánh và giảm số trạng thái cần đánh giá.
+        \end{itemize}
+    \item Sử dụng 64-bit integer cho tổng để tránh tràn khi trọng số lớn.
+\end{itemize}
+\section*{8. Kết quả thử nghiệm tổng hợp}
+\addcontentsline{toc}{section}{8. Kết quả thử nghiệm tổng hợp}
+% Bảng so sánh thời gian, bộ nhớ, số marking, v.v.
+
+\section*{9. Phụ lục}
+\addcontentsline{toc}{section}{9. Phụ lục}
+
+
+\end{document}
